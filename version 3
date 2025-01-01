@@ -1,0 +1,15 @@
+with open("input.txt", "r") as file:
+    coefficients = file.readlines()
+
+a = int(coefficients[0])  # Coefficient for x²
+b = int(coefficients[1])  # Coefficient for x
+c = int(coefficients[2])  # Constant term
+
+
+x = 1
+prediction = a * x**2 + b * x + c
+
+if prediction:
+    print(f"The probability of rain tomorrow is {prediction}%.")
+else:
+    print("An error occurred. Please contact the developer.")
