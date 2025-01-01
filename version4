@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+
+input_file = "input_data.txt"
+
+x_points = []
+y_points = []
+
+with open(input_file, 'r') as file:
+    for line in file:
+        a, b, c, x = map(float, line.strip().split())
+        y = a * x**2 + b * x + c
+        x_points.append(x)
+        y_points.append(y)
+
+print("\nCalculated Values:")
+for idx, (x, y) in enumerate(zip(x_points, y_points), start=1):
+    print(f"Data Set {idx}: X = {x}, Y = {y}")
+
+plt.figure(figsize=(8, 6))
+plt.scatter(x_points, y_points, color='blue', label='Data Points', zorder=5)
+plt.plot(x_points, y_points, linestyle='--', color='orange', label='Trend Line', zorder=4)
+
+plt.title("Quadratic Equation Results")
+plt.xlabel("X Values")
+plt.ylabel("Y Values")
+plt.grid(True, zorder=0)
+plt.legend()
+
+plt.show()
